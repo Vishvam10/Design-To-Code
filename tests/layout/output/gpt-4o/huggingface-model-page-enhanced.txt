@@ -1,0 +1,117 @@
+# Frontend Technical Requirement Document
+
+## Overview
+
+This document outlines the frontend requirements for implementing the design as shown. The layout is a two-column interface with a filter sidebar and a main content area displaying models.
+
+---
+
+## Layout
+
+### Page Structure
+
+- **Two-Column Layout**
+  - **Left Column (Filter Sidebar)**
+    - Contains a header section with checkboxes and a search input.
+    - Task categories are displayed in collapsible sections.
+  - **Right Column (Main Content Area)**
+    - Contains a header with a search bar and sorting options.
+    - Displays a list of model cards.
+
+### Grid System
+
+- Utilize a CSS Grid or Flexbox for responsive design.
+- **Left Column Width:** Approximately 25% of the page.
+- **Right Column Width:** Approximately 75% of the page.
+
+---
+
+## Components
+
+### Header
+
+- **Logo and Navigation**
+  - Left-aligned logo image.
+  - Right-aligned navigation links for Models, Datasets, Spaces, etc.
+
+### Search Bar
+
+- Positioned centrally at the top of both columns.
+- Contains a text input and search icon.
+
+### Filter Sidebar
+
+- **Header Section**
+  - Contains checkboxes for "Tasks" and a reset button.
+- **Filter Options**
+  - **Task Categories:** Each category is collapsible.
+  - **Checkboxes:** Each task is listed with a checkbox.
+
+### Model Cards
+
+- **Structure**
+  - Horizontal layout with a border.
+  - Contains an icon, model name, description, and metadata.
+- **Metadata**
+  - Includes update date, download count, and a star rating.
+
+---
+
+## Grid & Spacing
+
+- **Gutters:** 16px between columns and elements.
+- **Padding:** 16px padding inside model cards and filter sections.
+- **Margins:** 24px top margin for the main content under the header.
+
+---
+
+## Typography
+
+- **Font Family:** 'Arial', sans-serif.
+- **Header Font Size:** 18px, bold.
+- **Body Text Font Size:** 14px, regular.
+- **Line Height:** 1.5 for readability.
+- **Text Alignment:** Left-aligned for all text elements.
+
+---
+
+## Colors
+
+- **Primary Color:** #4A90E2 (used in headers and active states).
+- **Secondary Color:** #F5F5F5 (background for sidebar and cards).
+- **Text Color:** #333333 for headers, #666666 for body text.
+- **Border Color:** #E0E0E0 for card borders.
+
+---
+
+## Images and Media
+
+- **Logo:** Placeholder logo image (100x50px).
+- **Model Icons:** Placeholder images for model icons (40x40px).
+
+---
+
+## Interactive Elements
+
+- **Buttons and Links:**
+  - Hover effects: Change background to #E0E0E0.
+  - Active states: Border color changes to primary color.
+
+---
+
+## Iconography and Graphics
+
+- **Icons:** Use SVGs for task and model icons for scalability.
+- **Borders:** Solid 1px borders around cards and sidebar sections.
+
+---
+
+## Accessibility
+
+- **Contrast Ratio:** Ensure text has at least a 4.5:1 contrast ratio.
+- **Focus States:** Clearly visible focus states for interactive elements.
+- **ARIA Labels:** Use ARIA labels for all checkboxes and interactive elements.
+
+---
+
+This document should guide the implementation of the design, ensuring consistency and adherence to design specifications.

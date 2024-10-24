@@ -1,0 +1,105 @@
+```markdown
+# Frontend Development Technical Requirement Document
+
+## Layout
+
+### Header
+- **Structure**: Horizontal layout
+- **Components**: 
+  - Logo on the left
+  - Delivery information next to the logo
+  - Search bar centered
+  - Language selection, account details, orders, and cart on the right
+- **Grid**: Flexbox for horizontal alignment
+
+### Navigation Bar
+- **Structure**: Horizontal layout
+- **Components**: 
+  - Menu items (All, Medical Care, Best Sellers, etc.)
+- **Grid**: Flexbox
+
+### Main Banner
+- **Structure**: Single row, full-width
+- **Components**: 
+  - Background image with overlay text
+  - Two images on the sides
+  - Centered text with event details
+- **Grid**: Full-width flexbox
+
+### Content Section
+- **Structure**: 4-column layout
+- **Grid**: CSS Grid with equal column widths
+
+#### Column 1: "Being a Prime member adds up"
+- **Sub-Structure**: 2x2 grid
+- **Components**: 
+  - Four image blocks with text underneath
+  - "Join Prime" link at the bottom
+
+#### Column 2: "Shop the Winterize Your Ride Event"
+- **Sub-Structure**: 2x2 grid
+- **Components**: 
+  - Four image blocks with text underneath
+  - "Shop all" link at the bottom
+
+#### Column 3: "Enjoy all the Prime benefits"
+- **Sub-Structure**: 2x2 grid
+- **Components**: 
+  - Four image blocks with text underneath
+  - "Join Prime" link at the bottom
+
+#### Column 4: "modern moments™ by Gerber"
+- **Sub-Structure**: 2x2 grid
+- **Components**: 
+  - Four image blocks with text underneath
+  - "Shop new little looks" link at the bottom
+
+## Grid & Spacing
+- **Spacing**: 
+  - Padding and margins around each section for visual separation
+  - Uniform gutter space between grid items
+- **Alignment**: 
+  - Centered alignment for text within grid items
+
+## Typography
+- **Font Families**: Default Amazon font
+- **Font Sizes**: 
+  - Headers: Large, bold
+  - Sub-text: Medium, regular
+  - Links: Medium, underline
+- **Text Alignment**: Left-aligned for most text, center for main banner
+
+## Colors
+- **Primary Colors**: 
+  - Background: White
+  - Text: Black
+- **Accent Colors**: 
+  - Banner: Blue with white text
+  - Links: Blue
+
+## Images and Media
+- **Dimensions**: Consistent square aspect ratio for grid images
+- **Styling**: 
+  - Rounded corners for images
+  - Placeholder links for images
+
+## Interactive Elements
+- **Buttons**: 
+  - Hover effect: Darken background
+  - Active states: Light shadow
+- **Links**: Underline on hover
+
+## Iconography and Graphics
+- **Icons**: 
+  - Cart and account icons in the header
+- **Style**: Simple, flat design
+
+## Accessibility
+- **Contrast Ratio**: Ensure text is legible against backgrounds
+- **Alt Text**: Provide descriptive alt text for images
+- **Focus States**: Clear focus indicators for interactive elements
+
+---
+
+This document specifies the detailed design requirements for the frontend development of the Amazon webpage. Ensure all components match the described layout and styling for a consistent user experience.
+```

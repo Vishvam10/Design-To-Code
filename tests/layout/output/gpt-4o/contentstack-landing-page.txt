@@ -1,0 +1,109 @@
+## Technical Requirement Document
+
+### Layout
+
+1. **Header Section**
+   - **Top Announcement Bar**: 
+     - Full-width, single-row layout.
+     - Background color: #6B38FB.
+     - Contains text aligned to the left with an arrow icon on the right.
+
+   - **Main Navigation Bar**:
+     - Two-column layout.
+     - **Left Column**: Contains the logo aligned to the left.
+     - **Right Column**: Contains navigation links and icons aligned to the right.
+     - Dropdown menus for each navigation item: "Platform", "Solutions", "Customers", "Partners", "Resources", "Company".
+     - Includes "MARKETPLACE", "DOCS", "LOGIN", search icon, and language selector icon.
+
+2. **Hero Section**
+   - Two-column layout.
+   - **Left Column**: 
+     - Contains text elements: 
+       - Subtitle: "VISUAL BUILDER: FOR BUILDING CONTENT EXPERIENCES".
+       - Main heading: "PUBLISH FASTER. PERSONALIZE MORE."
+       - Description text.
+     - "LEARN MORE" button below the text.
+   - **Right Column**:
+     - Contains an image of an airplane on a gradient background.
+     - Image is placed inside a laptop mockup with a white border.
+
+### Components
+
+1. **Button Component**: 
+   - Style: Rounded corners.
+   - "START FREE" button: White background with purple text.
+   - "TALK TO US" button: Black background with white text.
+   - "LEARN MORE" button: Purple background with white text.
+
+2. **Navigation Dropdown**:
+   - Appears on hover for each main navigation item.
+   - Background: White, with shadow.
+
+### Grid & Spacing
+
+- **Grid System**: 
+  - Uses a flexible grid layout with a responsive design.
+- **Spacing**:
+  - Consistent padding and margins around text and buttons.
+  - Gutters between columns are equal.
+- **Alignment**:
+  - Text is left-aligned.
+  - Buttons are center-aligned beneath text.
+
+### Typography
+
+- **Font Family**: Sans-serif.
+- **Font Sizes**:
+  - Subtitle: Small, uppercase.
+  - Main Heading: Large, bold.
+  - Description: Medium.
+- **Font Weights**:
+  - Subtitle: Regular.
+  - Main Heading: Bold.
+  - Description: Regular.
+- **Text Alignment**: Left for all text in the hero section.
+
+### Colors
+
+- **Primary Color**: #6B38FB (Purple).
+- **Secondary Color**: #000000 (Black).
+- **Accent Color**: #FFFFFF (White).
+- **Text Colors**:
+  - Subtitle: #6B38FB.
+  - Main Heading: #000000.
+  - Description: #333333.
+
+### Images and Media
+
+- **Hero Image**:
+  - Aspect Ratio: 16:9.
+  - Positioned in the right column.
+  - Image is within a laptop mockup with rounded edges and a white border.
+
+### Interactive Elements
+
+- **Buttons**: 
+  - Hover effect: Slight shadow increase.
+  - Active state: Darker background shade.
+- **Navigation Links**:
+  - Hover effect: Underline.
+  - Dropdowns open on hover.
+
+### Iconography and Graphics
+
+- **Icons**:
+  - Consistent style and size throughout.
+  - Used in navigation and announcement bar.
+- **Graphics**:
+  - Hexagon pattern in the background of the hero section.
+
+### Accessibility
+
+- **Contrast Ratios**: 
+  - Ensure text contrasts sufficiently with background.
+- **Focus States**:
+  - Clear focus states for interactive elements.
+- **Alt Text**:
+  - Provide descriptive alt text for images and icons. 
+
+This document provides a comprehensive guide to implementing the design accurately, ensuring consistency and usability across the platform.

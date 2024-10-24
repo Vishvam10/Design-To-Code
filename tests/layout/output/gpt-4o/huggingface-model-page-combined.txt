@@ -1,0 +1,84 @@
+# Frontend Technical Requirement Document
+
+## Layout
+
+### Overall Structure
+- The page follows a two-column layout.
+  - **Left Column (Sidebar):** Contains filters and categories.
+  - **Right Column (Main Content):** Displays the list of models.
+
+### Header
+- A horizontal bar at the top with the following sections:
+  - **Logo and Search Bar** (2-column layout):
+    - Logo on the left.
+    - Search bar with placeholder text "Search models, datasets, users…" on the right.
+  - **Navigation Links** (5-column layout):
+    - Models, Datasets, Spaces, Posts, Docs, Pricing.
+
+### Left Column (Sidebar)
+- **Filter Section:**
+  - Search input box with placeholder "Filter Tasks by name" and a "Reset Tasks" button.
+- **Category List:**
+  - **Multimodal** and **Computer Vision** sections.
+  - Each section contains a list of tasks, each task is a button with an icon and text.
+  - Tasks are grouped and separated by category headers.
+
+### Right Column (Main Content)
+- **Model List Header:**
+  - Displays the number of models and a filter input box with placeholder "Filter by name".
+  - Sort button with dropdown functionality labeled "Sort: Most downloads".
+- **Model List:**
+  - Each model entry follows a structured card layout:
+    - **Icon:** Small image or icon representing the model.
+    - **Model Name and Description:**
+      - Model name with link style.
+      - Description with update date, download count, and other metadata.
+    - Arranged vertically with consistent spacing.
+
+## Grid & Spacing
+- **Grid System:** Utilizes a CSS grid for the main layout with a sidebar and main content area.
+- **Spacing:**
+  - Consistent margins and padding between elements.
+  - Sidebar and main content have equal vertical padding.
+  - Horizontal padding between search inputs and buttons.
+
+## Typography
+- **Font Family:** Sans-serif (e.g., Arial, Helvetica).
+- **Font Sizes:**
+  - Header Links: 16px, bold.
+  - Model Names: 14px, bold.
+  - Model Descriptions: 12px, regular.
+- **Text Alignment:** 
+  - Left-aligned for model descriptions and names.
+  - Centered for header navigation links.
+
+## Colors
+- **Primary Background:** White (#FFFFFF).
+- **Sidebar Background:** Light grey (#F5F5F5).
+- **Text Colors:**
+  - Primary Text: Black (#000000).
+  - Secondary Text: Grey (#666666).
+- **Button and Icon Colors:**
+  - Filter and task buttons have a light blue background with white text.
+  - Hover effects: Slightly darker shade for interactivity.
+
+## Images and Media
+- **Icons:** 24x24 pixels, consistent size across all icons.
+- **Model Icons:** 40x40 pixels, ensuring uniformity.
+
+## Interactive Elements
+- **Buttons:** 
+  - Rounded corners with hover effects (slightly darker background).
+  - Clear active states with a border or shadow.
+- **Links:** Underlined on hover to indicate interactivity.
+
+## Iconography and Graphics
+- **Icons:** Simple, flat design with a consistent style.
+- **Category Headers:** Slightly larger font size and bold.
+
+## Accessibility
+- **Contrast Ratio:** Ensures text is legible against background colors.
+- **Focus States:** Clear outline for keyboard navigation.
+- **ARIA Labels:** For all interactive elements to support screen readers.
+
+This document outlines the detailed requirements for implementing the design accurately in a production environment. Ensure all components are responsive and adhere to the specified layout and styling guidelines.

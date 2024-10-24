@@ -1,0 +1,79 @@
+```markdown
+# Frontend Development Requirement Document
+
+## Layout
+
+### Page Structure
+- **Header**: Contains the logo on the left and a search bar in the center with navigation links (Models, Datasets, Spaces, Posts, Docs, Pricing) on the right.
+- **Main Content**: Split into two columns:
+  - **Left Sidebar (Filters)**: Contains filter options for tasks, libraries, datasets, languages, and others, with a search bar and reset button at the top.
+  - **Right Content (Models List)**: Displays a list of models with a filter search bar at the top.
+
+### Grid System
+- **Overall Layout**: Uses a two-column grid layout.
+- **Left Sidebar**: Single-column layout with nested categories.
+- **Right Content**: Single-column layout for model listings.
+
+## Components
+
+### Header
+- **Logo**: Positioned on the far left.
+- **Search Bar**: Centered with placeholder text.
+- **Navigation Links**: Aligned to the right.
+
+### Left Sidebar
+- **Filter Section**: 
+  - **Search Bar**: Positioned at the top with a reset button.
+  - **Categories**: Each category (e.g., Multimodal, Computer Vision) is a collapsible section with items listed vertically.
+
+### Right Content
+- **Model List Item**:
+  - **Icon**: Positioned on the left.
+  - **Model Name**: Bold text next to the icon.
+  - **Model Details**: Includes update date, download count, and other metadata.
+
+## Grid & Spacing
+
+- **Header**: Padding of 20px on all sides, with 15px spacing between navigation links.
+- **Left Sidebar**: Padding of 15px with 10px spacing between filter items.
+- **Right Content**: 20px padding with 15px spacing between model list items.
+
+## Typography
+
+- **Font Family**: "Inter", sans-serif.
+- **Header Text**: Bold, 16px.
+- **Body Text**: Regular, 14px.
+- **Model Names**: Bold, 14px.
+- **Model Details**: Regular, 12px.
+
+## Colors
+
+- **Background**: #F8F9FA (light grey).
+- **Header Background**: #FFFFFF (white).
+- **Text**: #333333 (dark grey).
+- **Links**: #007BFF (blue).
+- **Icons**: #6C757D (grey).
+- **Hover Effects**: Lighten background color to #E9ECEF.
+
+## Images and Media
+
+- **Logo**: 40x40px, positioned on the left.
+- **Model Icons**: 30x30px, aligned left in the list items.
+
+## Interactive Elements
+
+- **Buttons**: Standard button style with hover effects (background color change).
+- **Links**: Underlined on hover.
+- **Sidebar Categories**: Collapsible with transition effects.
+
+## Iconography and Graphics
+
+- **Icons**: Consistent style, 20x20px.
+- **Separators**: Thin lines (#DEE2E6) between sections.
+
+## Accessibility
+
+- **Contrast Ratio**: Ensure text and background contrast is at least 4.5:1.
+- **Focus States**: Clear focus indicators for interactive elements.
+- **Alt Text**: Provide descriptive alt text for all icons and images.
+```
