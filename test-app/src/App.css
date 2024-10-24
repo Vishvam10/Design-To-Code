@@ -1,0 +1,38 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #F7F8FA;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #222222;
+}
+
+.subheading {
+  font-size: 16px;
+  font-weight: regular;
+  color: #666666;
+}
+
+.left-column {
+  flex-basis: 50%;
+  margin-right: 16px;
+}
+
+.right-column {
+  flex-basis: 50%;
+}
+
+.feature-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #FFFFFF;
+}
+
+.icon {
+  font-size: 48px;
+  margin-right: 8px;
+}
