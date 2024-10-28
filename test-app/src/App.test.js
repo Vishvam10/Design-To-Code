@@ -1,113 +1,116 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
-import App from "./App";
+import React from 'react';
+import { render } from '@testing-library/react';
+// import '@testing-library/jest-dom/extend-expect';
 
-describe("Frontend Layout Tests", () => {
-  test("Header layout and components", () => {
-    render(<App />);
-    const header = screen.getByRole("banner");
-    expect(header).toHaveStyle("display: flex");
-
-    const logo = screen.getByAltText("Logo");
-    expect(logo).toBeInTheDocument();
-
-    const deliveryInfo = screen.getByText(/delivery information/i);
-    expect(deliveryInfo).toBeInTheDocument();
-
-    const searchBar = screen.getByRole("searchbox");
-    expect(searchBar).toBeInTheDocument();
-
-    const languageSelection = screen.getByText(/language/i);
-    const accountDetails = screen.getByText(/account/i);
-    const orders = screen.getByText(/orders/i);
-    const cart = screen.getByRole("button", { name: /cart/i });
-    expect(languageSelection).toBeInTheDocument();
-    expect(accountDetails).toBeInTheDocument();
-    expect(orders).toBeInTheDocument();
-    expect(cart).toBeInTheDocument();
+describe('Amazon Webpage Layout and Components', () => {
+  
+  test('Header layout is correct', () => {
+    const { getByTestId } = render(<Header />);
+    const header = getByTestId('header');
+    
+    expect(header).toHaveStyle('display: flex');
+    expect(getByTestId('logo')).toBeInTheDocument();
+    expect(getByTestId('delivery-info')).toBeInTheDocument();
+    expect(getByTestId('search-bar')).toBeInTheDocument();
+    expect(getByTestId('language-selection')).toBeInTheDocument();
+    expect(getByTestId('account-details')).toBeInTheDocument();
+    expect(getByTestId('orders')).toBeInTheDocument();
+    expect(getByTestId('cart')).toBeInTheDocument();
   });
 
-  test("Navigation bar layout", () => {
-    const navBar = screen.getByRole("navigation");
-    expect(navBar).toHaveStyle("display: flex");
-
-    const menuItems = screen.getAllByRole("link");
-    expect(menuItems.length).toBeGreaterThan(0);
+  test('Navigation bar layout is correct', () => {
+    const { getByTestId } = render(<NavigationBar />);
+    const navBar = getByTestId('nav-bar');
+    
+    expect(navBar).toHaveStyle('display: flex');
+    expect(getByTestId('menu-item-all')).toBeInTheDocument();
+    expect(getByTestId('menu-item-medical')).toBeInTheDocument();
+    expect(getByTestId('menu-item-best-sellers')).toBeInTheDocument();
   });
 
-  test("Main banner structure", () => {
-    const banner = screen.getByRole("img", { name: /main banner/i });
-    expect(banner).toBeInTheDocument();
-    expect(banner).toHaveStyle("width: 100%");
-
-    const overlayText = screen.getByText(/event details/i);
-    expect(overlayText).toBeInTheDocument();
-    expect(overlayText).toHaveStyle("text-align: center");
+  test('Main Banner layout is correct', () => {
+    const { getByTestId } = render(<MainBanner />);
+    const banner = getByTestId('main-banner');
+    
+    expect(banner).toHaveStyle('display: flex');
+    expect(getByTestId('banner-text')).toHaveStyle('text-align: center');
+    expect(getByTestId('banner-image-left')).toBeInTheDocument();
+    expect(getByTestId('banner-image-right')).toBeInTheDocument();
   });
 
-  test("Content section grid layout", () => {
-    const contentSection = screen.getByTestId("content-section");
-    expect(contentSection).toHaveStyle(
-      "display: grid; grid-template-columns: repeat(4, 1fr)"
-    );
+  test('Content Section layout is correct', () => {
+    const { getByTestId } = render(<ContentSection />);
+    const contentSection = getByTestId('content-section');
 
-    const columns = screen.getAllByTestId(/^column-/);
-    columns.forEach((column) => {
-      expect(column).toHaveStyle(
-        "display: grid; grid-template-columns: repeat(2, 1fr)"
-      );
+    expect(contentSection).toHaveStyle('display: grid');
+    expect(contentSection).toHaveStyle('grid-template-columns: repeat(4, 1fr)');
+  });
+
+  const columnTests = [
+    { column: 'column-1', linkText: 'Join Prime' },
+    { column: 'column-2', linkText: 'Shop all' },
+    { column: 'column-3', linkText: 'Join Prime' },
+    { column: 'column-4', linkText: 'Shop new little looks' }
+  ];
+
+  columnTests.forEach(({ column, linkText }) => {
+    test(`${column} layout and components are correct`, () => {
+      const { getByTestId } = render(<ContentSection />);
+      const columnElement = getByTestId(column);
+
+      expect(columnElement).toHaveStyle('display: grid');
+      expect(columnElement).toHaveStyle('grid-template-columns: repeat(2, 1fr)');
+      expect(columnElement).toHaveStyle('grid-template-rows: repeat(2, 1fr)');
+
+      for (let i = 1; i <= 4; i++) {
+        expect(getByTestId(`${column}-image-${i}`)).toBeInTheDocument();
+        expect(getByTestId(`${column}-text-${i}`)).toBeInTheDocument();
+      }
+
+      expect(getByTestId(`${column}-link`)).toHaveTextContent(linkText);
     });
   });
 
-  test("Typography checks", () => {
-    const headers = screen.getAllByRole("heading");
-    headers.forEach((header) => {
-      expect(header).toHaveStyle("font-size: large; font-weight: bold");
-    });
+  test('Typography and colors are correct', () => {
+    const { getByTestId } = render(<MainPage />);
+    const headers = getByTestId('headers');
+    const subText = getByTestId('sub-text');
+    const links = getByTestId('links');
 
-    const subTexts = screen.getAllByText(/text/i);
-    subTexts.forEach((subText) => {
-      expect(subText).toHaveStyle("font-size: medium; font-weight: normal");
-    });
-
-    const links = screen.getAllByRole("link");
-    links.forEach((link) => {
-      expect(link).toHaveStyle("font-size: medium; text-decoration: underline");
-    });
+    expect(headers).toHaveStyle('font-size: large');
+    expect(headers).toHaveStyle('font-weight: bold');
+    expect(subText).toHaveStyle('font-size: medium');
+    expect(subText).toHaveStyle('font-weight: regular');
+    expect(links).toHaveStyle('font-size: medium');
+    expect(links).toHaveStyle('text-decoration: underline');
+    expect(links).toHaveStyle('color: blue');
   });
 
-  test("Color and styling checks", () => {
-    const background = screen.getByRole("main");
-    expect(background).toHaveStyle("background-color: white");
+  test('Images and media styling is correct', () => {
+    const { getByTestId } = render(<ImageComponent />);
+    const image = getByTestId('image');
 
-    const textElements = screen.getAllByText(/text/i);
-    textElements.forEach((text) => {
-      expect(text).toHaveStyle("color: black");
-    });
-
-    const banner = screen.getByRole("banner");
-    expect(banner).toHaveStyle("background-color: blue; color: white");
+    expect(image).toHaveStyle('aspect-ratio: 1 / 1');
+    expect(image).toHaveStyle('border-radius: 8px'); // Assuming rounded corners
   });
 
-  test("Image dimensions and styling", () => {
-    const images = screen.getAllByRole("img");
-    images.forEach((image) => {
-      expect(image).toHaveStyle("aspect-ratio: 1 / 1; border-radius: 8px");
-    });
+  test('Interactive elements are styled correctly', () => {
+    const { getByTestId } = render(<InteractiveComponent />);
+    const button = getByTestId('button');
+    const link = getByTestId('link');
+
+    expect(button).toHaveStyle('transition: background-color 0.3s');
+    expect(link).toHaveStyle('text-decoration: none');
+    expect(link).toHaveStyle('color: blue');
   });
 
-  test("Interactive elements", () => {
-    const buttons = screen.getAllByRole("button");
-    buttons.forEach((button) => {
-      expect(button).toHaveStyle("transition: background-color 0.3s");
-      button.dispatchEvent(new MouseEvent("mouseover", { bubbles: true }));
-      expect(button).toHaveStyle("background-color: darken");
-    });
+  test('Accessibility features are present', () => {
+    const { getByAltText, getByTestId } = render(<AccessibleComponent />);
+    const image = getByAltText('Descriptive alt text');
+    const button = getByTestId('focus-button');
 
-    const links = screen.getAllByRole("link");
-    links.forEach((link) => {
-      link.dispatchEvent(new MouseEvent("mouseover", { bubbles: true }));
-      expect(link).toHaveStyle("text-decoration: underline");
-    });
+    expect(image).toBeInTheDocument();
+    expect(button).toHaveStyle('outline: 2px solid blue'); 
   });
+
 });

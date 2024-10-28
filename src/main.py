@@ -5,6 +5,8 @@ from models.llm.pydantic_models import GenerateParams
 from models.segmentation.bounding_box import add_bounding_box
 
 from prompts.system import SYSTEM_PROMPT
+from prompts.test_generator import TEST_GENERATOR_PROMPT
+
 from utils.file import join_paths, create_folder_structure
 from constants import TESTS_DIR
 
@@ -49,7 +51,6 @@ async def main():
 
 if __name__ == "__main__":
     from models.llm.providers.openai import LLM_OpenAI
-
     from dotenv import load_dotenv
 
     load_dotenv()

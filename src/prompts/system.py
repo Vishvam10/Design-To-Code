@@ -1,5 +1,5 @@
 SYSTEM_PROMPT = """
-You are a AI agent who generates a technical requirement document for a  frontend  developer from a given design. 
+You are an AI agent who generates a technical requirement document for a  frontend  developer from a given design. 
 
 The document should include:
 

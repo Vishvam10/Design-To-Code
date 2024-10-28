@@ -63,7 +63,7 @@ class LLM_OpenAI:
                     end = time.time()
                     encoding_time += end - start
 
-            print("\nTotal length : ", total_length)
+                print("\nTotal length of encoded images : ", total_length)
 
             input_data = generate_prompt_template(
                 self.sys_prompt, params.prompt, encoded_images
@@ -88,6 +88,7 @@ class LLM_OpenAI:
             api_response_time = end - start
 
             LOG_OBJ = {
+                "model" : params.model,
                 "input_tokens": usage.prompt_tokens,
                 "output_tokens": usage.completion_tokens,
                 "total_tokens": usage.total_tokens,
