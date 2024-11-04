@@ -1,5 +1,3 @@
-import os
-
 from agents.refactor import RefactorAgent
 
 from constants import SRC_DIR
