@@ -9,7 +9,7 @@ async def main():
         doc = f.read()
 
     test_generator = TestGeneratorAgent(llm=client, requirements_doc=doc)
-    await test_generator.generate()
+    await test_generator.run()
 
 
 if __name__ == "__main__":

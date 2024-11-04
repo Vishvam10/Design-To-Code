@@ -1,0 +1,196 @@
+===============
+
+== Component Defn
+
+const Header = () => (
+  <header className="header" data-testid="header">
+    <div className="logo" data-testid="logo">Logo</div>
+    <div className="delivery-info" data-testid="delivery-info">Delivery Info</div>
+    <input className="search-bar" data-testid="search-bar" placeholder="Search" />
+    <div className="header-right">
+      <span className="language-selection" data-testid="language-selection">Language</span>
+      <span className="account-details" data-testid="account-details">Account</span>
+      <span className="orders" data-testid="orders">Orders</span>
+      <span className="cart" data-testid="cart">Cart</span>
+    </div>
+  </header>
+);
+
+== Component Styles 
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo, .delivery-info, .search-bar, .language-selection, .account-details, .orders, .cart {
+  margin: 0 10px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  flex: 1;
+}
+
+===============
+
+== Component Defn
+
+const NavigationBar = () => (
+  <nav className="nav-bar" data-testid="nav-bar">
+    <span className="menu-item" data-testid="menu-item-all">All</span>
+    <span className="menu-item" data-testid="menu-item-medical">Medical Care</span>
+    <span className="menu-item" data-testid="menu-item-best-sellers">Best Sellers</span>
+  </nav>
+);
+
+== Component Styles 
+
+.nav-bar {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.menu-item {
+  margin: 0 10px;
+}
+
+===============
+
+== Component Defn
+
+const MainBanner = () => (
+  <div className="main-banner" data-testid="main-banner">
+    <img src="placeholder.png" alt="Left Banner" className="banner-image" data-testid="banner-image-left" />
+    <div className="banner-text" data-testid="banner-text">
+      Event Details
+    </div>
+    <img src="placeholder.png" alt="Right Banner" className="banner-image" data-testid="banner-image-right" />
+  </div>
+);
+
+== Component Styles 
+
+.main-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  color: white;
+  padding: 20px;
+}
+
+.banner-text {
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+}
+
+.banner-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  margin: 0 10px;
+}
+
+===============
+
+== Component Defn
+
+const ContentSection = () => (
+  <div className="content-section" data-testid="content-section">
+    <Column title="Being a Prime member adds up" linkText="Join Prime" columnId="column-1" />
+    <Column title="Shop the Winterize Your Ride Event" linkText="Shop all" columnId="column-2" />
+    <Column title="Enjoy all the Prime benefits" linkText="Join Prime" columnId="column-3" />
+    <Column title="modern moments™ by Gerber" linkText="Shop new little looks" columnId="column-4" />
+  </div>
+);
+
+const Column = ({ title, linkText, columnId }) => (
+  <div className="column" data-testid={columnId}>
+    <h2>{title}</h2>
+    <div className="column-grid">
+      {[1, 2, 3, 4].map(i => (
+        <div key={i} className="image-block">
+          <img src="placeholder.png" alt={`${title} image ${i}`} data-testid={`${columnId}-image-${i}`} />
+          <p data-testid={`${columnId}-text-${i}`}>Image {i}</p>
+        </div>
+      ))}
+    </div>
+    <a href="#" data-testid={`${columnId}-link`} className="column-link">{linkText}</a>
+  </div>
+);
+
+== Component Styles 
+
+.content-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.column {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+}
+
+.column-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.image-block {
+  text-align: center;
+}
+
+.column-link {
+  color: blue;
+  text-decoration: underline;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+===============
+
+== Component Defn
+
+const App = () => (
+  <div className="main-page">
+    <Header />
+    <NavigationBar />
+    <MainBanner />
+    <ContentSection />
+  </div>
+);
+
+== Component Styles 
+
+.main-page {
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  font-size: large;
+  font-weight: bold;
+}
+
+p {
+  font-size: medium;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: 2px solid blue;
+}
