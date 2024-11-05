@@ -14,6 +14,7 @@ async def main():
 
 if __name__ == "__main__":
     from models.llm.providers.openai import LLM_OpenAI
+    from models.llm.providers.groq import LLM_Groq
     from agents.developer import DeveloperAgent
 
     from dotenv import load_dotenv
