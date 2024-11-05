@@ -1,5 +1,3 @@
-import subprocess
-
 from agents.abstract import Agent
 from agents.types import AGENT_RETURN_TYPE
 
@@ -18,11 +16,16 @@ class DeveloperAgent(Agent):
         self.requirements_doc = requirements_doc
         self.save_fp = save_fp if save_fp else APP_JSON_FILE_PATH
 
-    async def run(self, model: str = "gpt-4o") -> AGENT_RETURN_TYPE:
+    async def run(
+        self, model: str = "gpt-4o", sys_prompt: str = ""
+    ) -> AGENT_RETURN_TYPE:
         try:
             print("Developer : Generating React code ...")
             params = GenerateParams(
-                model=model, prompt=self.requirements_doc, max_tokens=2048
+                model=model,
+                sys_prompt=sys_prompt,
+                prompt=self.requirements_doc,
+                max_tokens=2048,
             )
             response = await self.llm.generate(params)
             react_code = response.get("generated_text", "Error in code generation")

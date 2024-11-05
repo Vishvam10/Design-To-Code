@@ -17,9 +17,6 @@ UPDATED_APP_JSON_FILE_PATH = join_paths([TEST_APP_SRC_DIR, "AppUpdated.json"])
 
 TestGeneratorAgentInput = Dict[str, ComponentDataWithImports]
 
-# This was a breaking change in version 6.0 that removed the extend-expect
-# entry point in favor of a default entry point and some platform specific
-# ones. For my use case, the default entry point worked:
 IMPORTS_TO_REMOVE = ["import '@testing-library/jest-dom/extend-expect';"]
 
 
@@ -34,7 +31,14 @@ class TestGeneratorAgent(Agent):
 
         return data
 
-    async def _generate_test_suite(self, name, data, model, llm):
+    async def _generate_test_suite(
+        self,
+        name: str,
+        data: ComponentDataWithImports,
+        model: str,
+        llm: LLM_PROVIDERS,
+        sys_prompt: str,
+    ):
         print(f"TesterGenerator : Generating test suite for {name}")
 
         react_code = (
@@ -45,11 +49,12 @@ class TestGeneratorAgent(Agent):
 
         prompt = (
             f"\n\nHere's the React code for component {name} : \n\n{react_code}. "
-            f"\n\nHere's are the component's CSS styles : \n\n{style}"
+            f"\n\nHere are the component's CSS styles : \n\n{style}"
         )
 
-        # Setting max_tokens to 4096 since test cases are generally verbose
-        params = GenerateParams(prompt=prompt, model=model, max_tokens=4096)
+        params = GenerateParams(
+            model=model, sys_prompt=sys_prompt, prompt=prompt, max_tokens=4096
+        )
 
         response = await llm.generate(params)
 
@@ -60,7 +65,7 @@ class TestGeneratorAgent(Agent):
         test_suite = response.get("generated_text", "Error in code generation")
 
         for item in IMPORTS_TO_REMOVE:
-            test_suite.replace(item, "")
+            test_suite = test_suite.replace(item, "")
 
         component_file_name = f"{name}.spec.js"
 
@@ -80,15 +85,9 @@ class TestGeneratorAgent(Agent):
                 create_folder_structure(component_folder_path)
                 file_path = join_paths([component_folder_path, file_name])
             else:
-                # We want the App.jsx file to be present in /src not
-                # in /src/components
                 file_path = join_paths([TEST_APP_SRC_DIR, file_name])
 
-            # It is easier to read on the terminal
             relative_file_path = get_relative_path(file_path, TEST_APP_SRC_DIR)
-
-            # print("\nWriting stuff to : ", file_path)
-            # print("\n\nStuff : \n\n", data)
 
             with open(file_path, "w") as f:
                 f.write(data)
@@ -99,17 +98,29 @@ class TestGeneratorAgent(Agent):
             print(f"Error occurred while writing to file: {file_path}: ", e)
             return "ERROR"
 
-    async def run(self, model: str) -> AGENT_RETURN_TYPE:
+    async def run(self, model: str, sys_prompt: str = "") -> AGENT_RETURN_TYPE:
         try:
             print()
-            tasks = []
-            for name, data in self.component_data.items():
-                tasks.append(self._generate_test_suite(name, data, model, self.llm))
+            tasks = [
+                self._generate_test_suite(name, data, model, self.llm, sys_prompt)
+                for name, data in self.component_data.items()
+            ]
 
-            await asyncio.gather(*tasks)
+            results = await asyncio.gather(*tasks, return_exceptions=True)
 
+            for name, result in zip(self.component_data.keys(), results):
+                if isinstance(result, Exception):
+                    print(f"Error generating test suite for {name}: {result}")
+                    return "ERROR"
+                elif result == "ERROR":
+                    print(f"Error in writing test suite for {name}.")
+                    return "ERROR"
+                else:
+                    print(f"Validator: Test suite generation successful for {name}.")
+
+            print("\nValidator: Test suite generation successful for all components\n")
             return "SUCCESS"
 
         except Exception as e:
-            print("Error occurred while generating test suites: ", str(e))
+            print("Error occurred while generating test suites:", str(e))
             return "ERROR"

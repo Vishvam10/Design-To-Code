@@ -7,15 +7,20 @@ from agents.validator import ValidatorAgent
 from agents.test_generator import TestGeneratorAgent
 from agents.test_runner import TestRunnerAgent
 
+
 async def main():
     
-    
-    test_generator = TestGeneratorAgent(llm=client)
-    await test_generator.run(AvailableLLMs.OPENAI_GPT_4o)
+    dev_status = await developer_agent.run(
+        model=AvailableLLMs.OPENAI_GPT_4o, sys_prompt=DEVELOPER_AGENT_SYSTEM_PROMPT
+    )
+
+    val_status = await validator_agent.run()
+        
+
+
 
 
 if __name__ == "__main__":
-    
     from models.llm.providers.openai import LLM_OpenAI
     from models.llm.providers.groq import LLM_Groq
     from models.llm.available_llms import AvailableLLMs
@@ -38,20 +43,10 @@ if __name__ == "__main__":
     # client = LLM_Groq(api_key=GROQ_API_KEY, sys_prompt=sys_prompt)
     client = LLM_OpenAI(api_key=OPENAI_API_KEY)
 
-    # Change sys prompt for the developer
-    client.set_system_prompt(DEVELOPER_AGENT_SYSTEM_PROMPT)
     developer_agent = DeveloperAgent(llm=client, requirements_doc=doc)
-
     refactor_agent = RefactorAgent()
-
     validator_agent = ValidatorAgent()
-
-    # Change sys prompt for the test generator
-    client.set_system_prompt(TEST_GENERATOR_SYSTEM_PROMPT)
     test_generator_agent = TestGeneratorAgent(llm=client)
-
-    test_runner_agent = TestRunnerAgent
-
-
+    test_runner_agent = TestRunnerAgent()
 
     asyncio.run(main())
