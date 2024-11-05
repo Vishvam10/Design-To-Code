@@ -9,7 +9,7 @@
     "build": "vite build",
     "format": "prettier --write .",
     "lint:js": "eslint . --fix",
-    "lint:css": "stylelint 'src/**/*.css' --fix",
+    "lint:css": "stylelint 'src/**/*.css' --fix --quiet",
     "preview": "vite preview"
   },
   "dependencies": {
