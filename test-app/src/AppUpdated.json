@@ -1,0 +1,32 @@
+{
+  "Header": {
+    "definition": "const Header = () => (\n  <header className=\"header\" data-testid=\"header\">\n    <div className=\"logo\" data-testid=\"logo\">Logo</div>\n    <div className=\"delivery-info\" data-testid=\"delivery-info\">Delivery to 12345</div>\n    <input type=\"text\" className=\"search-bar\" placeholder=\"Search...\" data-testid=\"search-bar\" />\n    <div className=\"right-section\" data-testid=\"right-section\">\n      <div className=\"language\" data-testid=\"language\">EN</div>\n      <div className=\"account\" data-testid=\"account\">Account</div>\n      <div className=\"orders\" data-testid=\"orders\">Orders</div>\n      <div className=\"cart\" data-testid=\"cart\">Cart</div>\n    </div>\n  </header>\n);",
+    "styles": ".header { display: flex; align-items: center; justify-content: space-between; padding: 10px; background-color: white; }\n.logo { flex: 1; }\n.delivery-info { flex: 1; }\n.search-bar { flex: 2; padding: 5px; }\n.right-section { flex: 2; display: flex; justify-content: flex-end; gap: 10px; }",
+    "imports": "import React from 'react';\n\nimport './index.css';\n"
+  },
+  "NavigationBar": {
+    "definition": "const NavigationBar = () => (\n  <nav className=\"navigation-bar\" data-testid=\"navigation-bar\">\n    <div className=\"menu-item\" data-testid=\"menu-item\">All</div>\n    <div className=\"menu-item\" data-testid=\"menu-item\">Medical Care</div>\n    <div className=\"menu-item\" data-testid=\"menu-item\">Best Sellers</div>\n    <div className=\"menu-item\" data-testid=\"menu-item\">...</div>\n  </nav>\n);",
+    "styles": ".navigation-bar { display: flex; justify-content: space-around; background-color: white; padding: 10px 0; }\n.menu-item { cursor: pointer; }",
+    "imports": "import React from 'react';\n\nimport './index.css';\n"
+  },
+  "MainBanner": {
+    "definition": "const MainBanner = () => (\n  <section className=\"main-banner\" data-testid=\"main-banner\">\n    <img src=\"placeholder.jpg\" alt=\"left banner\" className=\"banner-image\" />\n    <div className=\"banner-text\" data-testid=\"banner-text\">Event Details</div>\n    <img src=\"placeholder.jpg\" alt=\"right banner\" className=\"banner-image\" />\n  </section>\n);",
+    "styles": ".main-banner { display: flex; justify-content: space-between; align-items: center; background-color: blue; color: white; padding: 20px; }\n.banner-text { flex: 1; text-align: center; font-size: 24px; }\n.banner-image { width: 100px; height: 100px; }",
+    "imports": "import React from 'react';\n\nimport './index.css';\n"
+  },
+  "ContentSection": {
+    "definition": "const ContentSection = () => (\n  <section className=\"content-section\" data-testid=\"content-section\">\n    <ContentColumn title=\"Being a Prime member adds up\" linkText=\"Join Prime\" />\n    <ContentColumn title=\"Shop the Winterize Your Ride Event\" linkText=\"Shop all\" />\n    <ContentColumn title=\"Enjoy all the Prime benefits\" linkText=\"Join Prime\" />\n    <ContentColumn title=\"modern moments\u2122 by Gerber\" linkText=\"Shop new little looks\" />\n  </section>\n);",
+    "styles": ".content-section { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 20px; }",
+    "imports": "import React from 'react';\nimport ContentColumn from './../ContentColumn/ContentColumn';\n\nimport './index.css';\n"
+  },
+  "ContentColumn": {
+    "definition": "const ContentColumn = ({ title, linkText }) => (\n  <div className=\"content-column\" data-testid=\"content-column\">\n    <h2>{title}</h2>\n    <div className=\"grid-container\">\n      <div className=\"grid-item\" data-testid=\"grid-item\"> <img src=\"placeholder.jpg\" alt=\"\" className=\"content-image\" /> Description</div>\n      <div className=\"grid-item\" data-testid=\"grid-item\"> <img src=\"placeholder.jpg\" alt=\"\" className=\"content-image\" /> Description</div>\n      <div className=\"grid-item\" data-testid=\"grid-item\"> <img src=\"placeholder.jpg\" alt=\"\" className=\"content-image\" /> Description</div>\n      <div className=\"grid-item\" data-testid=\"grid-item\"> <img src=\"placeholder.jpg\" alt=\"\" className=\"content-image\" /> Description</div>\n    </div>\n    <a href=\"#\" className=\"link\" data-testid=\"link\">{linkText}</a>\n  </div>\n);",
+    "styles": ".content-column { padding: 10px; background-color: white; }\n.grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }\n.grid-item { text-align: center; }\n.content-image { width: 100px; height: 100px; border-radius: 8px; }\n.link { color: blue; text-decoration: underline; }",
+    "imports": "import React from 'react';\n\nimport './index.css';\n"
+  },
+  "App": {
+    "definition": "const App = () => (\n  <div className=\"app\">\n    <Header />\n    <NavigationBar />\n    <MainBanner />\n    <ContentSection />\n  </div>\n);",
+    "styles": ".app { font-family: 'Amazon Ember', Arial, sans-serif; color: black; }",
+    "imports": "import React from 'react';\nimport MainBanner from './components/MainBanner/MainBanner';\nimport Header from './components/Header/Header';\nimport NavigationBar from './components/NavigationBar/NavigationBar';\nimport ContentSection from './components/ContentSection/ContentSection';\n\nimport './index.css';\n"
+  }
+}

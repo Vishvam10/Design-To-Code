@@ -36,9 +36,8 @@ def generate_prompt_template(system_prompt: str, prompt: str, encoded_images: An
 
 
 class LLM_OpenAI:
-    def __init__(self, api_key: str, sys_prompt: str = ""):
+    def __init__(self, api_key: str) -> None:
         self.api_key = api_key
-        self.sys_prompt = sys_prompt
         self.client = AsyncOpenAI(api_key=self.api_key)
 
     async def generate(self, params: GenerateParams) -> Dict:
@@ -66,7 +65,7 @@ class LLM_OpenAI:
                 print("\nTotal length of encoded images : ", total_length)
 
             input_data = generate_prompt_template(
-                self.sys_prompt, params.prompt, encoded_images
+                params.sys_prompt, params.prompt, encoded_images
             )
 
             api_params = {
@@ -88,7 +87,7 @@ class LLM_OpenAI:
             api_response_time = end - start
 
             LOG_OBJ = {
-                "model" : params.model,
+                "model": params.model,
                 "input_tokens": usage.prompt_tokens,
                 "output_tokens": usage.completion_tokens,
                 "total_tokens": usage.total_tokens,

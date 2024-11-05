@@ -5,6 +5,8 @@ from pydantic import BaseModel, Field
 class GenerateParams(BaseModel):
     model: str = ""
 
+    sys_prompt : Optional[str] = ""
+
     # prompt can be optional if using images
     prompt: Optional[str] = ""
 

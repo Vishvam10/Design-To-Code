@@ -4,6 +4,8 @@ from pathlib import Path
 def join_paths(paths) -> str:
     return os.path.realpath(os.path.join(*paths))
 
+def get_relative_path(file_path : str, folder_path : str) -> str :
+    return os.path.relpath(file_path, folder_path)
 
 def create_folder_structure(path) -> None:
     directory = Path(path)

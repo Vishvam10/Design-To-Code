@@ -4,7 +4,7 @@ import asyncio
 from models.llm.pydantic_models import GenerateParams
 from models.segmentation.bounding_box import add_bounding_box
 
-from prompts.system import SYSTEM_PROMPT
+from prompts.vision import SYSTEM_PROMPT
 from prompts.test_generator import TEST_GENERATOR_PROMPT
 
 from utils.file import join_paths, create_folder_structure
