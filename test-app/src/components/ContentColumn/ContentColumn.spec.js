@@ -3,8 +3,8 @@ import { render, screen } from '@testing-library/react';
 import ContentColumn from './ContentColumn';
 
 describe('ContentColumn Component', () => {
-  const title = "Sample Title";
-  const linkText = "Sample Link";
+  const title = 'Sample Title';
+  const linkText = 'Sample Link';
 
   beforeEach(() => {
     render(<ContentColumn title={title} linkText={linkText} />);
@@ -13,15 +13,17 @@ describe('ContentColumn Component', () => {
   test('renders the content column with correct title', () => {
     const titleElement = screen.getByText(title);
     expect(titleElement).toBeInTheDocument();
-    expect(titleElement).toHaveStyle({ 
-      fontSize: '24px', 
-      fontWeight: 'bold', 
-      textAlign: 'left' 
+    expect(titleElement).toHaveStyle({
+      fontSize: '24px',
+      fontWeight: 'bold',
+      textAlign: 'left',
     });
   });
 
   test('renders a 2x2 grid of images with descriptions', () => {
-    const gridContainer = screen.getByTestId('content-column').querySelector('.grid-container');
+    const gridContainer = screen
+      .getByTestId('content-column')
+      .querySelector('.grid-container');
     expect(gridContainer).toHaveStyle({
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
@@ -30,14 +32,14 @@ describe('ContentColumn Component', () => {
 
     const gridItems = screen.getAllByTestId('grid-item');
     expect(gridItems).toHaveLength(4);
-    gridItems.forEach(item => {
+    gridItems.forEach((item) => {
       expect(item).toHaveStyle({ textAlign: 'center' });
       const img = item.querySelector('img');
       expect(img).toHaveAttribute('src', 'placeholder.jpg');
-      expect(img).toHaveStyle({ 
-        width: '100px', 
-        height: '100px', 
-        borderRadius: '8px' 
+      expect(img).toHaveStyle({
+        width: '100px',
+        height: '100px',
+        borderRadius: '8px',
       });
     });
   });
@@ -46,9 +48,9 @@ describe('ContentColumn Component', () => {
     const linkElement = screen.getByTestId('link');
     expect(linkElement).toBeInTheDocument();
     expect(linkElement).toHaveTextContent(linkText);
-    expect(linkElement).toHaveStyle({ 
-      color: 'blue', 
-      textDecoration: 'underline' 
+    expect(linkElement).toHaveStyle({
+      color: 'blue',
+      textDecoration: 'underline',
     });
   });
 
@@ -56,7 +58,7 @@ describe('ContentColumn Component', () => {
     const contentColumn = screen.getByTestId('content-column');
     expect(contentColumn).toHaveStyle({
       padding: '10px',
-      backgroundColor: 'white'
+      backgroundColor: 'white',
     });
   });
 });

@@ -1,3 +1,19 @@
-.main-banner { display: flex; justify-content: space-between; align-items: center; background-color: blue; color: white; padding: 20px; }
-.banner-text { flex: 1; text-align: center; font-size: 24px; }
-.banner-image { width: 100px; height: 100px; }
+.main-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: blue;
+  color: white;
+  padding: 20px;
+}
+
+.banner-text {
+  flex: 1;
+  text-align: center;
+  font-size: 24px;
+}
+
+.banner-image {
+  width: 100px;
+  height: 100px;
+}

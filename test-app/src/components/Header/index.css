@@ -1,5 +1,27 @@
-.header { display: flex; align-items: center; justify-content: space-between; padding: 10px; background-color: white; }
-.logo { flex: 1; }
-.delivery-info { flex: 1; }
-.search-bar { flex: 2; padding: 5px; }
-.right-section { flex: 2; display: flex; justify-content: flex-end; gap: 10px; }
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: white;
+}
+
+.logo {
+  flex: 1;
+}
+
+.delivery-info {
+  flex: 1;
+}
+
+.search-bar {
+  flex: 2;
+  padding: 5px;
+}
+
+.right-section {
+  flex: 2;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}

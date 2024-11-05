@@ -72,7 +72,9 @@ describe('App Component', () => {
 
   test('checks typography and colors', () => {
     render(<App />);
-    expect(screen.getByTestId('app')).toHaveStyle('font-family: "Amazon Ember", Arial, sans-serif');
+    expect(screen.getByTestId('app')).toHaveStyle(
+      'font-family: "Amazon Ember", Arial, sans-serif'
+    );
     expect(screen.getByTestId('app')).toHaveStyle('color: black');
   });
 

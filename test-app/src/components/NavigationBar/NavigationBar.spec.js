@@ -5,7 +5,7 @@ import NavigationBar from './NavigationBar';
 describe('NavigationBar Component', () => {
   test('renders navigation bar with correct structure', () => {
     const { getByTestId, getAllByTestId } = render(<NavigationBar />);
-    
+
     const navigationBar = getByTestId('navigation-bar');
     expect(navigationBar).toBeInTheDocument();
     expect(navigationBar).toHaveStyle('display: flex');

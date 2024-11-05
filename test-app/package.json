@@ -7,7 +7,9 @@
     "dev": "vite",
     "test": "jest --json --outputFile=jest-test-results.json",
     "build": "vite build",
-    "lint": "eslint .",
+    "format": "prettier --write .",
+    "lint:js": "eslint . --fix",
+    "lint:css": "stylelint 'src/**/*.css' --fix",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -33,6 +35,8 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "prettier": "^3.3.3",
+    "stylelint-config-standard": "^36.0.1",
     "vite": "^5.4.8"
   }
 }
